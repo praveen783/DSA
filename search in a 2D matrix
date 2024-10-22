@@ -1,0 +1,19 @@
+#include <bits/stdc++.h>
+bool findInMatrix(int x, vector<vector<int>> &arr) {
+   int n = arr.size(),m=arr[0].size();
+   int low =0,high=((n*m)-1);
+   while(low<=high){
+       int mid = (low+high)/2;
+       int row = mid/m, col=mid%m;
+       if(arr[row][col] == x){
+           return true;
+       }
+       else if(arr[row][col] > x){
+           high = mid-1;
+       }
+       else{
+           low = mid+1;
+       }
+   }
+   return false;
+}
